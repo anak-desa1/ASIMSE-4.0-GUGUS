@@ -27,7 +27,7 @@ class Data_pegawai extends CI_Controller
             $data['pegawai'] = $this->db->get_where('pegawai', ['email_pegawai' => $this->session->userdata('email_pegawai'), 'kd_gugus' => $this->session->userdata('kd_gugus')])->row_array();
             $data['pegawai'] = $this->db->get_where('pegawai', ['email_pegawai' => $this->session->userdata('email_pegawai'), 'kd_sekolah' => $this->session->userdata('kd_sekolah')])->row_array();
                      
-            $data['gugus'] = $this->db->get('m_gugus')->row_array();
+            $data['gugus'] = $this->db->get_where('m_gugus',['kd_gugus' => $this->session->userdata('kd_gugus')])->row_array();
             $data['sekolah'] = $this->db->get_where('m_sekolah',['kd_sekolah' => $this->session->userdata('kd_sekolah')])->row_array();           
             $data['role'] = $this->db->get('pegawai_role')->result_array();   
             
@@ -53,10 +53,10 @@ class Data_pegawai extends CI_Controller
         $pegawai = $this->db->get_where('pegawai', ['email_pegawai' => $this->session->userdata('email_pegawai'), 'kd_gugus' => $this->session->userdata('kd_gugus')])->row_array();
         $pegawai = $this->db->get_where('pegawai', ['email_pegawai' => $this->session->userdata('email_pegawai'), 'kd_sekolah' => $this->session->userdata('kd_sekolah')])->row_array();
                  
-        $gugus = $this->db->get('m_gugus')->row_array();
+        $gugus = $this->db->get_where('m_gugus',['kd_gugus' => $this->session->userdata('kd_gugus')])->row_array();
         $sekolah = $this->db->get_where('m_sekolah',['kd_sekolah' => $this->session->userdata('kd_sekolah')])->row_array();
 
-        if($pegawai['kd_gugus'] == $gugus['kd_gugus']){
+        if(isset($gugus['kd_gugus'])){
             cek_post();
             $list = $this->data_pegawai->tampildata();
             // var_dump($list);
@@ -64,7 +64,7 @@ class Data_pegawai extends CI_Controller
             $record = array();
             $no = $_POST['start'];
             foreach ($list as $data) 
-                if ($data['kd_gugus'] == $gugus['kd_gugus']){
+                if ($data['kd_gugus'] == $pegawai['kd_gugus']){
                 $no++;
     
                 // tombol action - dicek juga punya akses apa engga gengs....
@@ -91,7 +91,7 @@ class Data_pegawai extends CI_Controller
             //output to json format
             echo json_encode($output);
         }
-        if($pegawai['kd_sekolah'] == $sekolah['kd_sekolah']){
+        if(isset($sekolah['kd_sekolah'])){
             cek_post();
             $list = $this->data_pegawai->tampildata();
             // var_dump($list);

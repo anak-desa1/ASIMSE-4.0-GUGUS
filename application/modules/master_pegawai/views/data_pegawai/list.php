@@ -13,7 +13,7 @@
     </div><!-- End Page Title -->
 
     <!-- Main content -->
-    <?php if($pegawai['kd_gugus'] == $gugus['kd_gugus']){?>
+    <?php if(isset($gugus['kd_gugus'])){?>
     <section class="content">
         <div class="col-12">
             <div class="card">
@@ -23,22 +23,15 @@
                 <div class="card-body">
                     <div class="panel-body">
                         <?php if($pegawai['kd_gugus'] == $gugus['kd_gugus']){?>
-                                <button type="button" class="btn btn-primary mb-3 btn-action">
-                                    <span class="fa fa-plus"></span> Tambah Data
-                                </button>
-                                <button type="button" class="btn btn-secondary mb-3 btn-admin">
-                                    <span class="fa fa-plus"></span> Admin Sekolah
-                                </button>
-                                <a class="btn btn-success mb-3" href="<?= site_url('master_pegawai/data_pegawai/create') ?>"><i class="fa fa-upload"></i> Import Excel</a>
-                                <a class="btn btn-primary mb-3" href="<?= site_url('master_pegawai/data_pegawai') ?>"><i class="fa fa-users"></i> Data Pegawai</a>
-                        <?php } ?>
-                        <?php if($pegawai['kd_sekolah'] == $sekolah['kd_sekolah']){?>
-                                <button type="button" class="btn btn-primary mb-3 btn-action">
-                                    <span class="fa fa-plus"></span> Tambah Data
-                                </button>                               
-                                <a class="btn btn-success mb-3" href="<?= site_url('master_pegawai/data_pegawai/create') ?>"><i class="fa fa-upload"></i> Import Excel</a>
-                                <a class="btn btn-primary mb-3" href="<?= site_url('master_pegawai/data_pegawai') ?>"><i class="fa fa-users"></i> Data Pegawai</a>
-                        <?php } ?>                        
+                            <button type="button" class="btn btn-primary mb-3 btn-action">
+                                <span class="fa fa-plus"></span> Tambah Data
+                            </button>
+                            <button type="button" class="btn btn-secondary mb-3 btn-admin">
+                                <span class="fa fa-plus"></span> Admin Sekolah
+                            </button>
+                            <a class="btn btn-success mb-3" href="<?= site_url('master_pegawai/data_pegawai/create') ?>"><i class="fa fa-upload"></i> Import Excel</a>
+                            <a class="btn btn-primary mb-3" href="<?= site_url('master_pegawai/data_pegawai') ?>"><i class="fa fa-users"></i> Data Pegawai</a>
+                        <?php } ?>                                        
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-sm table-hover table-striped">
                                 <thead>
@@ -125,7 +118,7 @@
         </div>
     </section>
     <?php } ?>
-    <?php if($pegawai['kd_sekolah'] == $sekolah['kd_sekolah']){?>
+    <?php if(isset($sekolah['kd_sekolah'])){?>
     <section class="content">
         <div class="col-12">
             <div class="card">

@@ -15,6 +15,6 @@ Rancangan ASIMSE 4.0 GUGUS dalam satu kali login
 - Akses TU/Tenaga Pendidik
 - Akses Kepala Sekolah
 
-Untuk konfirmasi bisa hubungi kami di WA : 085805156113
+Untuk konfirmasi bisa hubungi kami di WA : 0858 0517 8397
 
 
